@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    run-on: ubuntu-latest
+
+  steps:
+    - name: Clonando o repositorio
+      uses: action/checkout@v3
+
+    - name: Instalando o Node.js
+      uses: action/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Instalando dependencias
+      run: npm install
+
+    - name: Rodando os testes
+      run: npm test
+
+    - name: Build do projeto
+      run: npm run build
