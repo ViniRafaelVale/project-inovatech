@@ -1,7 +1,7 @@
 import './CampoTexto.css';
 
 const CampoTexto=(props)=>{
-    //const[valor,setValor]=useState('');
+
     const aoDigitado=(evento)=>{
         props.aoAlterado(evento.target.value)
     }
